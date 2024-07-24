@@ -32,6 +32,22 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 2. For what size class is a 2:1 odds bet fair.
 3. How much money would Brownlow be expected to end up with if the bets went as described.
 
+Question Number 3: How much money would Brownlow be expected to end up with if the bets went as described?
+
+```{r}
+teachers<-numeric(40)
+for(i in 1:40){
+teachers[i]=BrLw()
+}
+```
+
+```{r}
+favstats(teachers)
+```
+
+
+
+
 ## Our strategy is to build a Function and the use it to answer the three questions. 
 
 The function will be given a class_size by number of students, odds, and Number_of_times brownlow made the bet.  It will give you back how much Brownlows earnings were. We will use it to answer our three questions below. If you can, improve this function by giving default values to some of its inputs. 
@@ -43,15 +59,31 @@ The function will be given a class_size by number of students, odds, and Number_
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
 
+
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
+In order to determine Brownlow's earnings from the 637 bets they have made, we would have to set the mean of the teachers to 40, since that is what our theoretical number would be for teachers we've hired. 
 
+The overall goal is to find the minimal amount of money he can earn closest to Zero
+
+```{r}
+teachers<-numeric(5000)
+for(i in 1:40){
+teachers[i]=BrLw(odds=4.51)
+}
+```
+
+```{r}
+favstats(teachers)
+```
 
 
 # What size of class makes the 2:1 bet fair?  Use manipulation of number of Students to tune Brownlows earnings to zero.
+
+After a bunch of trial and error we can conclude in a bet of 1:40 to make it fair, the odd of 4.51 to get our mean the closest to zero is -0.00075! 
 
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
